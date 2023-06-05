@@ -3,3 +3,4 @@
 * File: 2-print.py is a Python script that prints a string
 * File: 3-print_number.py is python script that prints a string using f
 * File: 4-print_float.py print the float stored in the variable
+* File: 5-print_string.py - prints 3 times a string stored in the variable
