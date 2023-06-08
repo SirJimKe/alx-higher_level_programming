@@ -8,9 +8,9 @@ if __name__ == "__main__":
     args_num = len(arguments)
 
     if args_num == 1:
-        print("1 argument:")
+        print("{} argument:".format(args_num))
     elif args_num == 0:
-        print("0 arguments.")
+        print("{} arguments.".format(args_num))
     else:
         print("{} arguments:".format(args_num))
 
