@@ -49,7 +49,7 @@ int is_palindrome(listint_t **head)
 
 	while (p1 != NULL && p2 != NULL)
 	{
-		if (p1->data != p2->data)
+		if (p1->n != p2->n)
 			return (0);
 
 		p1 = p1->next;
