@@ -6,7 +6,8 @@ def list_division(my_list_1, my_list_2, list_length):
     try:
         for i in range(list_length):
             try:
-                if not isinstance(a[i], (int, float)) or not isinstance(b[i], (int, float)):
+                if not isinstance(a[i], (int, float)) or \
+                   not isinstance(b[i], (int, float)):
                     raise TypeError("wrong type")
                 if b[i] == 0:
                     raise ZeroDivisionError("division by 0")
