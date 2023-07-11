@@ -3,4 +3,7 @@
 
 
 class BaseGeomety:
+    """
+    Base class for geometry-related classes.
+    """
     pass
