@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Empty Class"""
+"""Empty Class BaseGeometry"""
 
 
-class BaseGeomety:
+class BaseGeometry:
     """
     Base class for geometry-related classes.
     """
