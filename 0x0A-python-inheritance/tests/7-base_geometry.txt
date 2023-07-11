@@ -1,0 +1,26 @@
+The ``7-base_geometry`` module
+========================
+
+Using ``BaseGeometry``
+-------------------
+
+First import ``BaseGeometry`` from the ``7-base_geometry`` module:
+
+      >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+    Validate an integer value using integer_validator:
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", 25)
+
+    Validate a non-integer value using integer_validator (expected TypeError):
+    >>> bg.integer_validator("age", "twenty")
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+    Validate a negative value using integer_validator (expected ValueError):
+    >>> bg.integer_validator("height", -5)
+    Traceback (most recent call last):
+        ...
+    ValueError: height must be greater than 0
