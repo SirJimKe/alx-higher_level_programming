@@ -5,4 +5,4 @@
 def read_file(filename=""):
     """Reads a text file (UTF8)"""
     with open(filename, 'r', encoding="utf-8") as a_file:
-        print(a_file.read().rstrip())
+        print(a_file.read(), end="")
