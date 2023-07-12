@@ -20,7 +20,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance.
 
@@ -28,8 +28,12 @@ class Student:
             dict: A dictionary containing the serialized
             attributes of the Student instance.
         """
+        if attrs is None:
+            attrs = vars(self).keys()
         description = {}
-        for attr, value in vars(self).items():
-            if isinstance(value, (list, dict, str, int, bool)):
-                description[attr] = value
+        for attr in attrs:
+            if hasattr(self, attr):
+                value = getattr(self, attr)
+                if isinstance(value, (list, dict, str, int, bool)):
+                    description[attr] = value
         return description
