@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """a script that reads stdin"""
 
-import sys
-from collections import defaultdict
-
 
 def compute_metrics():
     """reads from standard input (sys.stdin) line by line"""
@@ -31,4 +28,6 @@ def compute_metrics():
             print("{} : {}".format(code, status_code_counts[code]))
 
 if __name__ == "__main__":
+    import sys
+    from collections import defaultdict
     compute_metrics()
