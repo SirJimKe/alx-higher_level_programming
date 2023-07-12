@@ -27,6 +27,7 @@ def compute_metrics():
         for code in sorted(status_code_counts.keys()):
             print("{} : {}".format(code, status_code_counts[code]))
 
+
 if __name__ == "__main__":
     import sys
     from collections import defaultdict
