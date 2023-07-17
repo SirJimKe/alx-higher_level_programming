@@ -12,6 +12,10 @@ class Rectangle(Base):
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
+        self.validate_integer("width", width, eq=False)
+        self.validate_integer("height", height, eq=False)
+        self.validate_integer("x", x)
+        self.validate_integer("y", y)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -23,10 +27,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
+        self.validate_integer("width", value, eq=False)
         self.__width = value
 
     @property
@@ -35,10 +36,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
+        self.validate_integer("height", value, eq=False)
         self.__height = value
 
     @property
@@ -47,10 +45,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
+        self.validate_integer("x", value)
         self.__x = value
 
     @property
@@ -59,17 +54,28 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
+        self.validate_integer("y", value)
         self.__y = value
 
+    def validate_integer(self, name, value, eq=True):
+        '''Method for validating the value.'''
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if eq and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+        elif not eq and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
     def area(self):
-        """Returns area of a rectangle"""
+        """Returns the area value of the Rectangle instance."""
         return self.width * self.height
 
     def display(self):
-        """Prints the rectangle instance"""
+        """Prints the Rectangle instance with the character #."""
         for _ in range(self.height):
-            print('#' * self.width)
+            print("#" * self.width)
+
+    def __str__(self):
+        """Returns a string representtion of Rectangle instance"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
+                                                       self.width, self.height)
