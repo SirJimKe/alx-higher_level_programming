@@ -72,10 +72,21 @@ class Rectangle(Base):
 
     def display(self):
         """Prints the Rectangle instance with the character #."""
+        for _ in range(self.y):
+            print()
         for _ in range(self.height):
-            print("#" * self.width)
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """Returns a string representtion of Rectangle instance"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+    def update(self, *args, **kwargs):
+        """Assigns arguments to each attribute"""
+        if args:
+            attributes = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attributes[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
