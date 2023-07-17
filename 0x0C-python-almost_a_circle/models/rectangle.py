@@ -81,6 +81,7 @@ class Rectangle(Base):
         """Returns a string representtion of Rectangle instance"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+
     def update(self, *args, **kwargs):
         """Assigns arguments to each attribute"""
         if args:
