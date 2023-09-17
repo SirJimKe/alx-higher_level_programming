@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This module lists all states with N as the first letter"""
 
 import MySQLdb
 import sys
