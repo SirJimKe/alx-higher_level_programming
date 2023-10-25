@@ -22,9 +22,7 @@ request.get(apiUrl, (error, response, body) => {
         }
       });
 
-      Object.keys(completedTasksByUser).forEach(userId => {
-        console.log(`'${userId}': ${completedTasksByUser[userId]}`);
-      });
+      console.log(completedTasksByUser);
     } catch (parseError) {
       console.error(parseError.message);
     }
